@@ -1,7 +1,7 @@
 const cloud = window.IntervalCosmosCloud || null;
 const appRoot = document.querySelector('#app');
 
-const VERSION = '2.0.5-alpha10.36';
+const VERSION = '2.0.5-alpha10.37';
 window.IntervalCosmosVersion = VERSION;
 const COURSES = [
   { code: 'piano', department: '音楽学科', name: 'ピアノコース' },
@@ -258,7 +258,8 @@ function pollTargetLink() {
         await cloud.getMyPlayer();
         if (targetLink !== request || request.cancelling) return;
         targetLink = null;
-        await startApp();
+        if (appStarted) location.reload();
+        else await startApp();
       } else if (['cancelled','expired'].includes(status.status)) {
         clearInterval(linkPollTimer); linkPollTimer = null;
         targetLink = null;
@@ -424,6 +425,12 @@ function installAppEnhancements() {
     if (profile?.is_guest) {
       btn.textContent = '正式アカウントを作成';
       btn.dataset.v205Action = 'guest-convert';
+      const existing = document.createElement('button');
+      existing.type = 'button';
+      existing.className = 'secondary-btn ic-v205-settings-btn';
+      existing.textContent = 'すでにアカウントがある';
+      existing.dataset.v205Action = 'existing';
+      cloudBox.appendChild(existing);
     } else {
       btn.textContent = '別の端末でログイン';
       btn.dataset.v205Action = 'source-link';
@@ -449,7 +456,7 @@ window.addEventListener('click', event => {
   if (!node) return;
   const action = node.dataset.v205Action;
   if (action === 'student') showStudentForm();
-  else if (action === 'existing') showLinkInput();
+  else if (action === 'existing') showLinkInput({ modal: appStarted });
   else if (action === 'staff-info') showStaffInfo();
   else if (action === 'chooser') appStarted ? clearUi() : showChooser();
   else if (action === 'guest') { cloud.setGuestMode(true); startApp(); }

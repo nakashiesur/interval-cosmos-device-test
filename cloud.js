@@ -545,7 +545,6 @@
     await ensureAuth();
     if (!player) await loadActualPlayer();
     if (player) throw new Error('この端末はすでにアカウントへ接続されています。');
-    setGuestMode(false);
     const normalized = String(pin || '').replace(/[^0-9]/g, '').slice(0, 6);
     const { data, error } = await client.rpc('claim_device_link_request', { p_pin: normalized });
     if (error) throw error;
