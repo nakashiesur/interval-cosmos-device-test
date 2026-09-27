@@ -860,7 +860,7 @@ function questionHTML() {
   const def = mode();
   if (state.phase === 'idle') {
     const readyMode = def.hyper ? def.title : def.ear ? 'EAR LINK' : def.practice ? def.title : def.title.replace('STANDARD /', 'STANDARD /');
-    return `<div class="question-card glass ${def.hyper ? 'question-card-hyper' : ''}"><p class="question-label">READY</p><h2 class="ready-title">${readyMode}</h2><p class="ready-copy">問題を見た瞬間に、音程名と響きを結びつける。</p><button class="primary-btn ${def.hyper ? 'hyper hyper-launch' : ''}" data-action="start-countdown">GAME START</button></div>`;
+    return `<div class="question-card glass ${def.hyper ? 'question-card-hyper' : ''}"><p class="question-label">READY</p><h2 class="ready-title">${readyMode}</h2><p class="ready-copy">問題を見た瞬間に、音程名と響きを結びつける。</p><button class="primary-btn ${def.hyper ? 'hyper hyper-launch' : ''}" data-action="start-countdown">GAME START</button><button class="secondary-btn ready-cancel" data-action="home">キャンセル</button></div>`;
   }
   if (!q) return '';
   const baseDisplay = displayNote(q.base, q.baseMidi, q.intervalKey);
@@ -968,7 +968,7 @@ function renderPlay() {
   const g = state.game;
   const danger = !def.unlimited && g.timeLeft <= 10;
   const hyperFx = def.hyper ? `<div class="hyper-fx" aria-hidden="true"><span class="warp-ring r1"></span><span class="warp-ring r2"></span><span class="warp-ring r3"></span><span class="hyper-scan"></span><span class="edge-fire left"></span><span class="edge-fire right"></span></div>` : '';
-  app.innerHTML = `<main class="screen play-screen ${danger ? 'danger-vignette' : ''} ${def.hyper ? 'hyper-play' : ''}">${hyperFx}<section class="play-shell">
+  app.innerHTML = `<main class="screen play-screen ${state.phase === 'idle' ? 'is-ready' : ''} ${danger ? 'danger-vignette' : ''} ${def.hyper ? 'hyper-play' : ''}">${hyperFx}<section class="play-shell">
     <header class="play-hud"><div class="hud-left"><span class="mode-mini">${def.ear ? 'ULTRA HARD' : def.hyper ? 'HYPER DRIVE' : def.practice ? 'PRACTICE' : 'STANDARD'}</span></div><div class="hud-center">${timerRingHTML()}</div><div class="hud-right">${def.hyper ? `<div class="metric combo ${g.combo >= 10 ? 'hot' : ''}"><span class="metric-label">COMBO</span><span class="metric-value">${g.combo}</span></div>` : ''}${def.scored ? `<div class="metric"><span class="metric-label">SCORE</span><span class="metric-value">${formatNumber(g.score)}</span></div>` : `<div class="metric"><span class="metric-label">ANSWERS</span><span class="metric-value">${g.total}</span></div>`}</div></header>
     <section class="question-zone">${questionHTML()}</section>
     <section class="answer-area">${state.phase === 'idle' ? '' : answerButtonsHTML()}</section>

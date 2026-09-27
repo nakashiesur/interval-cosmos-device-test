@@ -93,3 +93,17 @@
 @media(max-width:700px){
  .home-screen .v205-home-cosmos-pill>span,.home-screen .v205-home-history-pill>span{width:26px;height:26px;grid-area:auto;grid-row:1;grid-column:1}
 }
+
+/* Ready screens reserve the full viewport for a centered launch and safe exit. */
+.play-screen.is-ready .play-shell{display:flex!important;flex-direction:column;justify-content:center;min-height:calc(100dvh - 32px);}
+.play-screen.is-ready .play-hud,.play-screen.is-ready .answer-area,.play-screen.is-ready .play-footer{display:none!important;}
+.play-screen.is-ready .question-zone{flex:none!important;width:100%;}
+.play-screen.is-ready .question-card{height:auto!important;min-height:0!important;display:flex;flex-direction:column;align-items:center;gap:16px;padding:28px 18px;}
+.play-screen.is-ready .ready-cancel{font-size:13px;min-height:44px;padding:8px 22px;}
+@media(max-width:600px){
+ .v205-cosmos-hero{grid-template-columns:56px minmax(0,1fr);padding-right:36px;gap:8px;}
+ .v205-cosmos-avatar{width:56px;height:56px;}
+ .v205-cosmos-id{padding-right:0;}
+ .v205-cosmos-id h2{font-size:clamp(20px,5.5vw,26px);}
+ .v205-points{grid-column:2;display:flex;align-items:baseline;gap:8px;text-align:left;}
+}
