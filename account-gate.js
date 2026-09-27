@@ -1,7 +1,7 @@
 const cloud = window.IntervalCosmosCloud || null;
 const appRoot = document.querySelector('#app');
 
-const VERSION = '2.0.5-alpha10.39';
+const VERSION = '2.0.5-alpha10.40';
 window.IntervalCosmosVersion = VERSION;
 const COURSES = [
   { code: 'piano', department: '音楽学科', name: 'ピアノコース' },
@@ -224,6 +224,13 @@ async function submitStudentForm(form) {
   }
 }
 
+function deviceLinkError(error, fallback = '接続エラー') {
+  const message = error?.message || '';
+  if (/suspended/i.test(message)) return 'アカウントが一時停止中、または元の端末の接続が解除されています。管理者に確認してください。';
+  if (/PIN is invalid or expired/i.test(message)) return 'このPINは使用できません。入力内容を確認し、使用済み・期限切れの場合は元の端末で新しいPINを発行してください。';
+  return message || fallback;
+}
+
 async function submitLinkForm(form) {
   const pin = String(document.querySelector('#v205Pin')?.value || '').replace(/\D/g,'');
   if (pin.length !== 6) return setMessage('#v205LinkMessage', '6桁のPINを入力してください。', 'error');
@@ -236,10 +243,7 @@ async function submitLinkForm(form) {
     pollTargetLink();
   } catch (error) {
     console.error(error);
-    const message = error?.message || '';
-    setMessage('#v205LinkMessage', /PIN is invalid or expired/i.test(message)
-      ? 'このPINは使用できません。入力内容を確認し、使用済み・期限切れの場合は元の端末で新しいPINを発行してください。'
-      : message || 'PINを確認できませんでした。', 'error');
+    setMessage('#v205LinkMessage', deviceLinkError(error, 'PINを確認できませんでした。'), 'error');
     if (submit) { submit.disabled = false; submit.textContent = 'この端末を接続'; }
   }
 }
@@ -303,7 +307,7 @@ async function openSourceLink() {
     renderSourcePin(result);
     pollSourceLink();
   } catch (error) {
-    showTransientModal('PINを発行できませんでした', error?.message || '接続エラー');
+    showTransientModal('PINを発行できませんでした', deviceLinkError(error));
   }
 }
 
@@ -362,7 +366,7 @@ async function confirmSourceLink() {
     await cloud.confirmDeviceLink(sourceLink.request_id);
     sourceLink = null;
     showTransientModal('接続完了', '新しい端末をアカウントへ追加しました。両方の端末をそのまま使用できます。');
-  } catch (error) { showTransientModal('承認できませんでした', error?.message || '接続エラー'); }
+  } catch (error) { showTransientModal('承認できませんでした', deviceLinkError(error)); }
 }
 
 async function cancelSourceLink() {
