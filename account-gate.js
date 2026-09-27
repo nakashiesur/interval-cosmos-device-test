@@ -1,7 +1,7 @@
 const cloud = window.IntervalCosmosCloud || null;
 const appRoot = document.querySelector('#app');
 
-const VERSION = '2.0.5-alpha10.35';
+const VERSION = '2.0.5-alpha10.36';
 window.IntervalCosmosVersion = VERSION;
 const COURSES = [
   { code: 'piano', department: '音楽学科', name: 'ピアノコース' },

@@ -1163,7 +1163,7 @@ async function initializeCloud() {
   state.cloudStatus = 'connecting';
   try {
     const data = await cloud.init();
-    state.cloudStatus = data.status === 'offline' ? 'offline' : 'ready';
+    state.cloudStatus = navigator.onLine === false || data.status === 'offline' ? 'offline' : 'ready';
     state.cloudUserId = data.user?.id || null;
     state.profile = data.profile || null;
     state.playerDraft = state.profile?.player_name || '';
@@ -1407,7 +1407,7 @@ window.addEventListener('keydown', event => {
 window.addEventListener('beforeunload', () => { saveSettings(); saveMastery(); });
 window.addEventListener('online', initializeCloud);
 window.addEventListener('offline', () => {
-  if (state.profile && !state.profile.is_guest) state.cloudStatus = 'offline';
+  state.cloudStatus = 'offline';
   if (state.screen !== 'play') render();
 });
 window.addEventListener('interval-cosmos-sync', () => {
