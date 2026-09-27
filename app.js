@@ -676,7 +676,7 @@ function endGame() {
   state.phase = 'ending';
   audio.stopPending();
   const finalScore = currentFinalScore();
-  if (state.profile?.is_guest) window.IntervalCosmosGuestSessions?.save({
+  if (state.profile?.is_guest || (!state.profile && cloud?.isGuestMode?.())) window.IntervalCosmosGuestSessions?.save({
     mode: rankingKeyForMode() || state.modeId, score: finalScore,
     total_answers: state.game.total, correct_answers: state.game.correct,
     max_combo: state.game.maxCombo, played_at: new Date().toISOString()

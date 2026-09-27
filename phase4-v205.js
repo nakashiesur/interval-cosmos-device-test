@@ -224,6 +224,7 @@
       <header class="v205-history-head">
         <p class="v205-history-kicker">LEARNING TELEMETRY</p>
         <h2>学習履歴</h2>
+        <details class="v205-history-diagnostics"><summary>保存状態を確認</summary><p>版: ${esc(window.IntervalCosmosVersion || '不明')}<br>利用状態: ${profile?.is_guest ? 'ゲスト' : profile ? '登録済み' : '未確定'}<br>ゲスト選択: ${cloud?.isGuestMode?.() ? 'あり' : 'なし'}<br>端末の保存件数: ${window.IntervalCosmosGuestSessions ? window.IntervalCosmosGuestSessions.read().length : '保存機能が未読込'}<br>今回の保存: ${esc(window.IntervalCosmosGuestSessions?.status?.() || '不明')}</p></details>
         <p>${esc(profile?.player_name || 'PLAYER')} のプレイ記録と、現在の習熟傾向です。</p>
       </header>
 
