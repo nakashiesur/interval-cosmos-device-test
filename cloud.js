@@ -197,6 +197,12 @@
   }
 
   async function init() {
+    // Guest play and local history never require an authentication round trip.
+    // This also prevents a stalled/offline SDK from leaving app.profile empty.
+    if (isGuestMode()) {
+      const profile = guestProfile();
+      return {configured: configured(), status: 'guest', user: null, profile, player: profile};
+    }
     if (!configured()) {
       return { configured: false, status: 'unconfigured', user: null, profile: null, player: null };
     }
