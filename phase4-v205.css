@@ -1,0 +1,85 @@
+/* INTERVAL COSMOS v2.0.5 — Phase 4 learning history */
+.v205-history-overlay,
+.v205-practice-choice{
+  position:fixed; inset:0; z-index:2300;
+  display:flex; align-items:center; justify-content:center;
+  padding:24px; background:rgba(2,5,14,.82);
+  backdrop-filter:blur(18px);
+}
+.v205-history-card{
+  position:relative; width:min(1180px,96vw); max-height:92vh; overflow:auto;
+  border:1px solid rgba(111,191,255,.24); border-radius:30px;
+  padding:34px; background:linear-gradient(180deg,rgba(14,25,52,.98),rgba(6,12,29,.99));
+  box-shadow:0 28px 90px rgba(0,0,0,.5), inset 0 1px rgba(255,255,255,.04);
+}
+.v205-history-close{position:absolute;right:24px;top:24px;z-index:2}
+.v205-history-head{padding-right:70px;margin-bottom:26px}
+.v205-history-kicker{margin:0 0 10px;color:#51dcff;font-weight:800;letter-spacing:.28em;font-size:12px}
+.v205-history-head h2{margin:0;font-size:clamp(34px,5vw,62px);letter-spacing:.05em}
+.v205-history-head p:last-child{color:#9daac7;margin:8px 0 0}
+.v205-history-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.v205-history-summary>div{border:1px solid rgba(127,159,220,.2);border-radius:18px;padding:18px;background:rgba(255,255,255,.025)}
+.v205-history-summary span,.v205-history-summary small{display:block;color:#9ca8c4;font-size:11px;letter-spacing:.12em}
+.v205-history-summary strong{display:block;font-size:32px;margin:5px 0}
+.v205-history-section{margin-top:20px;border-top:1px solid rgba(139,169,226,.13);padding-top:20px}
+.v205-history-title{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:14px}
+.v205-history-title h3{margin:0;font-size:18px;letter-spacing:.12em}
+.v205-history-title span{color:#8896b4;font-size:12px}
+.v205-daily-chart{display:grid;grid-template-columns:repeat(14,1fr);gap:7px;min-height:130px;align-items:end;padding:12px;border-radius:18px;background:rgba(255,255,255,.02)}
+.v205-day{text-align:center;color:#7f8ba7;font-size:9px}
+.v205-day-bar{height:82px;display:flex;align-items:end;justify-content:center}
+.v205-day-bar i{display:block;width:62%;min-height:2px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#56dfff,#6c83ff)}
+.v205-day strong{display:block;height:14px;color:#cdd7ed;font-size:10px}
+.v205-day span{white-space:nowrap}
+.v205-history-modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.v205-history-mode{border:1px solid rgba(112,163,230,.19);border-radius:16px;padding:15px;background:rgba(255,255,255,.025)}
+.v205-history-mode>span{color:#57dfff;font-weight:800;letter-spacing:.1em}
+.v205-history-mode>strong{display:block;font-size:25px;margin:6px 0 9px}
+.v205-history-mode strong small{font-size:10px;color:#8997b3}
+.v205-history-mode>div{font-size:12px;color:#9aa8c4;margin-top:4px}
+.v205-history-insights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.v205-history-insights article{border:1px solid rgba(123,153,216,.18);border-radius:16px;padding:15px;background:rgba(255,255,255,.022)}
+.v205-history-insights article.weak{border-color:rgba(255,99,151,.28)}
+.v205-history-insights article.strong{border-color:rgba(68,225,184,.25)}
+.v205-history-insights span,.v205-history-insights small{display:block;color:#8e9bb7;font-size:10px;letter-spacing:.08em}
+.v205-history-insights strong{display:block;margin:7px 0;font-size:17px}
+.v205-history-intervals{display:grid;grid-template-columns:repeat(13,1fr);gap:7px}
+.v205-history-interval{appearance:none;border:1px solid rgba(126,151,204,.17);border-radius:14px;padding:11px 4px;background:rgba(255,255,255,.018);color:#dce7fa;cursor:pointer;transition:.16s ease}
+.v205-history-interval:hover{transform:translateY(-2px);border-color:rgba(80,220,255,.45)}
+.v205-history-interval strong{display:block;font-size:15px}.v205-history-interval span{display:block;font-weight:800;margin:5px 0}
+.v205-history-interval small{font-size:8px;color:#7f8ca6}
+.v205-history-interval.low{border-color:rgba(255,94,144,.35);background:rgba(255,70,130,.055)}
+.v205-history-interval.mid{border-color:rgba(255,189,86,.28)}
+.v205-history-interval.high{border-color:rgba(73,222,180,.24)}
+.v205-history-note{color:#8592ad;font-size:11px;margin:10px 0 0}
+.v205-history-logs{display:flex;flex-direction:column;gap:6px}
+.v205-history-log{display:grid;grid-template-columns:110px 130px 1fr 120px 80px;align-items:center;gap:10px;border-radius:12px;padding:10px 13px;background:rgba(255,255,255,.025);font-size:12px;color:#9ca9c3}
+.v205-history-log .mode{color:#52ddff;font-weight:800}.v205-history-log strong{font-size:17px;color:#f2f6ff}
+.v205-history-loading{min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#dce8ff}
+.v205-history-loading small{color:#8998b6}
+.v205-history-setting .secondary-btn{width:auto}
+.v205-history-launch{white-space:nowrap}
+.v205-practice-choice section{width:min(480px,92vw);padding:30px;border-radius:24px;text-align:center;border:1px solid rgba(83,216,255,.28);background:#0b1430;box-shadow:0 25px 80px rgba(0,0,0,.5)}
+.v205-practice-choice p{color:#55dcff;font-size:11px;font-weight:800;letter-spacing:.2em;margin:0 0 8px}
+.v205-practice-choice h3{font-size:27px;margin:0 0 8px}.v205-practice-choice>section>span{color:#8f9db9;font-size:13px}
+.v205-practice-choice section>div{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 14px}
+.v205-practice-choice section>div>button{
+  width:100%; min-width:0; height:88px; margin:0; padding:0 18px;
+  box-sizing:border-box; display:flex; align-items:center; justify-content:center;
+  font-size:22px; line-height:1;
+}
+.v205-choice-cancel{border:0;background:transparent;color:#7f8ba7;cursor:pointer}
+@media(max-width:780px){
+  .v205-history-overlay{padding:8px;align-items:stretch}
+  .v205-history-card{width:100%;max-height:100%;border-radius:20px;padding:22px 14px}
+  .v205-history-summary{grid-template-columns:1fr 1fr}
+  .v205-history-summary strong{font-size:25px}
+  .v205-history-insights{grid-template-columns:1fr}
+  .v205-history-intervals{grid-template-columns:repeat(5,1fr)}
+  .v205-history-log{grid-template-columns:70px 1fr 70px;font-size:10px}
+  .v205-history-log span:nth-child(4),.v205-history-log span:nth-child(5){display:none}
+  .v205-day:nth-child(-n+5){display:none}
+  .v205-daily-chart{grid-template-columns:repeat(9,1fr)}
+  .v205-history-title{align-items:flex-start;flex-direction:column}
+  .v205-practice-choice section>div>button{height:78px;font-size:20px}
+}

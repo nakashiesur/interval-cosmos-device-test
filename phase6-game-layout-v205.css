@@ -1,0 +1,199 @@
+/* INTERVAL COSMOS v2.0.5 — Assignment gameplay layout alignment
+   Scope is intentionally limited to assignment gameplay only. */
+
+/* When the assignment overlay is showing the game itself, use the same visual
+   footprint as the normal play screen instead of the wider assignment panels. */
+.v205-assignment-overlay:has(> .v205-a-game){
+  padding:calc(8px + var(--safe-top)) 16px calc(8px + var(--safe-bottom));
+  background:
+    radial-gradient(circle at 20% 10%,rgba(70,151,255,.09),transparent 28%),
+    radial-gradient(circle at 82% 82%,rgba(255,80,183,.08),transparent 30%),
+    linear-gradient(to bottom,#070914,rgba(3,4,12,.98));
+  backdrop-filter:none;
+}
+
+.v205-assignment-overlay > .v205-a-game{
+  width:min(100%,920px);
+  min-height:calc(100dvh - 16px - var(--safe-top) - var(--safe-bottom));
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+
+/* HUD: preserve assignment title while matching normal gameplay spacing. */
+.v205-a-game .play-hud{
+  flex:0 0 auto;
+  min-height:66px;
+  margin-bottom:10px;
+  grid-template-columns:1fr auto 1fr;
+}
+.v205-a-game .hud-left{min-width:0}
+.v205-a-game .hud-left small{
+  display:block;
+  max-width:min(300px,32vw);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.v205-a-game .v205-a-timer{
+  width:58px;
+  height:58px;
+  font-size:1rem;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Question area follows the normal play-shell rhythm. */
+.v205-a-game .question-zone{
+  flex:1 1 auto;
+  min-height:205px;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.v205-a-game .question-card{
+  width:min(100%,760px);
+  min-height:195px;
+  padding:18px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+.v205-a-game .question-label{margin-bottom:12px}
+.v205-a-game .sound-controls{margin-top:12px}
+.v205-a-game .v205-a-keyboard{width:100%;max-width:680px}
+
+/* Answers: same overall width as normal play and responsive height so all seven
+   rows fit without the assignment screen becoming excessively tall. */
+.v205-a-game .answer-area{
+  flex:0 0 auto;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:6px 0 0;
+}
+.v205-a-game .answer-rows{gap:clamp(5px,.65dvh,9px)}
+.v205-a-game .answer-row{gap:clamp(6px,.7vw,12px)}
+.v205-a-game .answer-btn-large{
+  height:clamp(56px,7.1dvh,86px);
+  min-height:0;
+  border-radius:clamp(12px,1.4vw,20px);
+}
+.v205-a-game .answer-btn-large .answer-main{
+  font-size:clamp(1rem,2.25vw,1.55rem);
+}
+
+/* Assignment-only footer stays compact and outside the answer grid. */
+.v205-a-game-foot{
+  flex:0 0 auto;
+  min-height:48px;
+  margin-top:7px;
+  padding:5px 0 max(4px,var(--safe-bottom));
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:12px;
+}
+.v205-a-game-foot > div{
+  min-width:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.v205-a-game-foot .danger{white-space:nowrap}
+
+/* Hyper Drive keeps its identity without changing normal-mode CSS. */
+.v205-assignment-overlay:has(> .v205-a-game.hyper){
+  background:
+    radial-gradient(circle at 18% 8%,rgba(255,166,55,.08),transparent 30%),
+    radial-gradient(circle at 82% 82%,rgba(255,74,169,.08),transparent 30%),
+    linear-gradient(to bottom,#070914,rgba(7,4,13,.99));
+}
+.v205-a-game.hyper .v205-a-timer{
+  border-color:rgba(255,177,63,.48);
+  box-shadow:inset 0 0 24px rgba(255,144,53,.10),0 0 24px rgba(255,92,157,.05);
+}
+
+@media (max-width:620px){
+  .v205-assignment-overlay:has(> .v205-a-game){
+    padding:calc(4px + var(--safe-top)) 7px calc(3px + var(--safe-bottom));
+  }
+  .v205-assignment-overlay > .v205-a-game{
+    min-height:calc(100dvh - 8px - var(--safe-top) - var(--safe-bottom));
+  }
+  .v205-a-game .play-hud{
+    min-height:48px;
+    margin-bottom:2px;
+    grid-template-columns:1fr auto 1fr;
+    gap:5px;
+  }
+  .v205-a-game .hud-left small{max-width:30vw;font-size:.58rem}
+  .v205-a-game .v205-a-timer{width:48px;height:48px;font-size:.88rem}
+  .v205-a-game .metric{min-width:66px;padding:5px 6px;border-radius:10px}
+  .v205-a-game .metric-label{font-size:.48rem}
+  .v205-a-game .metric-value{font-size:.95rem}
+  .v205-a-game .question-zone{
+    flex:0 0 auto;
+    min-height:128px;
+    padding:3px 0 5px;
+  }
+  .v205-a-game .question-card{
+    min-height:122px;
+    padding:9px 8px;
+    border-radius:15px;
+  }
+  .v205-a-game .question-label{margin-bottom:6px;font-size:.51rem}
+  .v205-a-game .note-question{font-size:clamp(1.8rem,10vw,2.85rem)}
+  .v205-a-game .sound-controls{margin-top:7px}
+  .v205-a-game .sound-controls .secondary-btn{padding:5px 9px;font-size:.61rem}
+  .v205-a-game .v205-a-keyboard{max-width:390px}
+  .v205-a-game .answer-rows{gap:5px}
+  .v205-a-game .answer-row{gap:6px}
+  .v205-a-game .answer-btn-large{
+    height:clamp(48px,6.4dvh,66px);
+    border-radius:12px;
+  }
+  .v205-a-game .answer-btn-large .answer-main{font-size:clamp(.88rem,4.3vw,1.08rem)}
+  .v205-a-game-foot{
+    min-height:54px;
+    margin-top:4px;
+    padding:3px 0 max(3px,var(--safe-bottom));
+    gap:6px;
+    font-size:.58rem;
+  }
+  .v205-a-game-foot .secondary-btn{padding:6px 9px;font-size:.6rem}
+}
+
+@media (max-height:720px) and (min-width:621px){
+  .v205-a-game .question-zone{min-height:160px;padding:6px 10px}
+  .v205-a-game .question-card{min-height:155px;padding:10px}
+  .v205-a-game .answer-btn-large{height:clamp(48px,6.7dvh,58px)}
+  .v205-a-game-foot{min-height:42px;margin-top:3px}
+}
+
+@media (max-height:720px) and (max-width:620px){
+  .v205-a-game .question-zone{min-height:104px}
+  .v205-a-game .question-card{min-height:100px;padding:6px}
+  .v205-a-game .answer-btn-large{height:45px}
+  .v205-a-game .answer-rows{gap:3px}
+  .v205-a-game-foot{min-height:46px;margin-top:2px}
+}
+
+
+/* v2.0.5 assignment answer clarity hotfix */
+.v205-a-game .note-question .v205-a-note-register{font-size:.28em;line-height:1;vertical-align:sub;margin-left:.06em;color:#7ee8ff;font-weight:800;text-shadow:0 0 14px rgba(80,220,255,.38)}
+.v205-a-game .question-card{position:relative;transition:border-color .16s ease,box-shadow .16s ease,background .16s ease}
+.v205-a-game.feedback-correct .question-card{border-color:rgba(91,238,184,.72)!important;box-shadow:0 0 0 1px rgba(91,238,184,.22),0 0 34px rgba(55,221,167,.16),inset 0 0 42px rgba(55,221,167,.055)!important}
+.v205-a-game.feedback-wrong .question-card{border-color:rgba(255,102,148,.72)!important;box-shadow:0 0 0 1px rgba(255,102,148,.2),0 0 34px rgba(255,76,136,.15),inset 0 0 42px rgba(255,76,136,.05)!important}
+.v205-a-feedback-banner{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;min-width:190px;padding:10px 16px;border-radius:999px;backdrop-filter:blur(14px);z-index:2;pointer-events:none;animation:v205-a-feedback-pop .2s ease-out both}
+.v205-a-feedback-banner>span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:950}.v205-a-feedback-banner>div{display:grid;gap:1px}.v205-a-feedback-banner strong{font-size:13px;letter-spacing:.14em}.v205-a-feedback-banner small{font-size:10px;color:#d7e2f4}
+.v205-a-feedback-banner.correct{color:#71f1c2;border:1px solid rgba(91,238,184,.45);background:rgba(17,68,57,.82)}.v205-a-feedback-banner.correct>span{background:rgba(91,238,184,.16);border:1px solid rgba(91,238,184,.46)}
+.v205-a-feedback-banner.wrong{color:#ff8eb3;border:1px solid rgba(255,102,148,.46);background:rgba(76,23,45,.84)}.v205-a-feedback-banner.wrong>span{background:rgba(255,102,148,.14);border:1px solid rgba(255,102,148,.45)}
+.v205-a-game .answer-btn.correct{border-color:rgba(91,238,184,.85)!important;background:linear-gradient(135deg,rgba(32,113,91,.58),rgba(34,70,91,.48))!important;color:#ecfff8!important;box-shadow:0 0 0 2px rgba(91,238,184,.18),0 0 24px rgba(55,221,167,.22)!important;transform:translateY(-1px)}
+.v205-a-game .answer-btn.wrong{border-color:rgba(255,102,148,.88)!important;background:linear-gradient(135deg,rgba(119,35,68,.58),rgba(76,28,65,.5))!important;color:#fff0f5!important;box-shadow:0 0 0 2px rgba(255,102,148,.17),0 0 24px rgba(255,76,136,.2)!important;animation:v205-a-wrong-shake .24s ease-out both}
+@keyframes v205-a-feedback-pop{from{opacity:0;transform:translate(-50%,8px) scale(.96)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes v205-a-wrong-shake{0%,100%{transform:translateX(0)}30%{transform:translateX(-4px)}65%{transform:translateX(4px)}}
+@media(max-width:720px){.v205-a-feedback-banner{bottom:12px;min-width:165px;padding:8px 12px}.v205-a-feedback-banner>span{width:24px;height:24px;font-size:15px}.v205-a-feedback-banner strong{font-size:11px}.v205-a-feedback-banner small{font-size:9px}}

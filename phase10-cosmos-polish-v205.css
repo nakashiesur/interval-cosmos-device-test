@@ -1,0 +1,301 @@
+/* INTERVAL COSMOS v2.0.5 — Phase 10 MY COSMOS responsive polish */
+
+.v205-cosmos-card{
+  scrollbar-gutter:stable;
+}
+.v205-cosmos-hero{
+  min-height:118px;
+}
+.v205-cosmos-section{
+  scroll-margin-top:18px;
+}
+.v205-daily-card,
+.v205-frame-card,
+.v205-title-card,
+.v205-achievement-item{
+  transition:border-color .16s ease,background .16s ease,transform .16s ease;
+}
+.v205-frame-card:not(.locked):hover,
+.v205-title-card.unlocked:hover,
+.v205-achievement-item.unlocked:hover{
+  transform:translateY(-1px);
+}
+
+@media(min-width:1080px){
+  .v205-frame-grid{
+    grid-template-columns:repeat(9,minmax(0,1fr));
+  }
+  .v205-frame-card{
+    min-width:0;
+  }
+}
+
+@media(max-width:780px){
+  .v205-cosmos-overlay{
+    padding:6px;
+  }
+  .v205-cosmos-card{
+    padding:16px 12px 18px;
+    border-radius:20px;
+  }
+  .v205-cosmos-close{
+    right:12px;
+    top:12px;
+    width:42px;
+    min-width:42px;
+    height:42px;
+  }
+  .v205-cosmos-hero{
+    grid-template-columns:64px minmax(0,1fr) auto;
+    gap:12px;
+    min-height:0;
+    padding:4px 50px 16px 0;
+  }
+  .v205-cosmos-avatar{
+    width:64px;
+    height:64px;
+    font-size:28px;
+  }
+  .v205-cosmos-id{
+    min-width:0;
+  }
+  .v205-cosmos-id p{
+    font-size:8px;
+    letter-spacing:.22em;
+  }
+  .v205-cosmos-id h2{
+    margin:2px 0;
+    font-size:clamp(24px,8vw,34px);
+    line-height:1.03;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .v205-cosmos-id span{
+    display:block;
+    font-size:10px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .v205-points{
+    grid-column:auto;
+    align-self:center;
+    text-align:right;
+    display:block;
+    min-width:64px;
+  }
+  .v205-points small,
+  .v205-points span{
+    font-size:7px;
+    letter-spacing:.1em;
+    white-space:nowrap;
+  }
+  .v205-points strong{
+    margin:2px 0;
+    font-size:25px;
+  }
+  .v205-evolution{
+    margin:14px 0 0;
+    padding:12px;
+    border-radius:14px;
+  }
+  .v205-evolution>div:first-child{
+    font-size:9px;
+  }
+  .v205-evolution small{
+    margin-top:5px;
+    font-size:8px;
+  }
+  .v205-progress.big{
+    height:7px;
+    margin-top:8px;
+  }
+  .v205-cosmos-section{
+    padding-top:16px;
+    margin-top:16px;
+  }
+  .v205-cosmos-section-head{
+    flex-direction:row;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:8px;
+    margin-bottom:10px;
+  }
+  .v205-cosmos-section-head p{
+    font-size:8px;
+    letter-spacing:.2em;
+  }
+  .v205-cosmos-section-head h3{
+    margin-top:2px;
+    font-size:18px;
+  }
+  .v205-cosmos-section-head>span{
+    max-width:44%;
+    font-size:8px;
+    line-height:1.35;
+    text-align:right;
+  }
+  .v205-cosmos-note{
+    margin-top:7px;
+    font-size:8px;
+    line-height:1.45;
+  }
+  .v205-daily-grid{
+    gap:7px;
+  }
+  .v205-daily-card{
+    padding:10px 11px;
+    border-radius:14px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:3px 10px;
+    align-items:center;
+  }
+  .v205-daily-top{
+    grid-column:1/-1;
+    font-size:8px;
+  }
+  .v205-daily-card h4{
+    margin:3px 0 0;
+    font-size:13px;
+  }
+  .v205-daily-card p{
+    grid-column:1/-1;
+    min-height:0;
+    margin:0 0 3px;
+    font-size:8.5px;
+    line-height:1.3;
+  }
+  .v205-daily-card .v205-progress{
+    height:5px;
+  }
+  .v205-daily-card small{
+    margin:0;
+    font-size:8px;
+  }
+  .v205-frame-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
+  }
+  .v205-frame-card{
+    min-height:104px;
+    padding:7px 4px;
+    gap:4px;
+    border-radius:13px;
+  }
+  .v205-frame-orb{
+    width:39px;
+    height:39px;
+    font-size:18px;
+  }
+  .v205-frame-card strong{
+    max-width:100%;
+    font-size:9px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .v205-frame-card small{
+    font-size:6.5px;
+    text-align:center;
+  }
+  .v205-frame-card em{
+    font-size:6px;
+  }
+  .v205-title-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;
+  }
+  .v205-title-card{
+    min-height:92px;
+    padding:10px;
+    border-radius:13px;
+  }
+  .v205-title-card strong{
+    font-size:11px;
+  }
+  .v205-title-card span{
+    margin:4px 0;
+    font-size:8px;
+    line-height:1.35;
+  }
+  .v205-title-card small{
+    font-size:7px;
+  }
+  .v205-achievement-group{
+    margin-top:13px;
+  }
+  .v205-achievement-group>h4{
+    margin-bottom:6px;
+    font-size:9px;
+  }
+  .v205-achievement-list{
+    gap:6px;
+  }
+  .v205-achievement-item{
+    grid-template-columns:30px minmax(0,1fr) auto;
+    gap:8px;
+    padding:9px;
+    border-radius:12px;
+  }
+  .v205-achievement-mark{
+    width:28px;
+    height:28px;
+    font-size:12px;
+  }
+  .v205-achievement-item strong{
+    font-size:10px;
+  }
+  .v205-achievement-item p{
+    margin:2px 0;
+    font-size:8px;
+    line-height:1.35;
+  }
+  .v205-achievement-item small{
+    font-size:7px;
+  }
+  .v205-feature-btn{
+    grid-column:auto;
+    justify-self:end;
+    min-width:48px;
+    padding:7px 6px;
+    font-size:7px;
+  }
+}
+
+@media(max-width:360px){
+  .v205-cosmos-hero{
+    grid-template-columns:58px minmax(0,1fr);
+    gap:9px;
+  }
+  .v205-cosmos-id{
+    padding-right:46px;
+  }
+  .v205-points{
+    grid-column:2;
+    grid-row:2;
+    text-align:left;
+  }
+  .v205-cosmos-avatar{
+    width:58px;
+    height:58px;
+    font-size:25px;
+  }
+  .v205-points strong{
+    font-size:22px;
+  }
+  .v205-frame-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .v205-title-grid{
+    grid-template-columns:1fr;
+  }
+  .v205-achievement-item{
+    grid-template-columns:28px minmax(0,1fr);
+  }
+  .v205-feature-btn{
+    grid-column:2;
+    justify-self:start;
+  }
+}

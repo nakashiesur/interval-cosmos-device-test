@@ -1,0 +1,397 @@
+/* INTERVAL COSMOS v2.0.5 — Phase 10 PRACTICE / FOCUS polish
+   Scoped with :has() so HYPER / other select panels are left untouched. */
+
+/* ---------- PRACTICE / TRAINING MENU ---------- */
+.select-panel:has(.practice-eyebrow){
+  width:min(100%,900px);
+  padding:clamp(18px,2.8vw,28px);
+}
+.select-panel:has(.practice-eyebrow)>.topbar{
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr) 46px;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+}
+.select-panel:has(.practice-eyebrow)>.topbar>.secondary-btn{
+  min-width:0;
+  width:92px;
+  min-height:44px;
+  padding:10px 12px;
+  font-size:.83rem;
+}
+.select-panel:has(.practice-eyebrow)>.topbar>.settings-gear-btn{
+  width:46px;
+  min-width:46px;
+  height:46px;
+  min-height:46px;
+  justify-self:end;
+}
+.select-panel:has(.practice-eyebrow)>.topbar .topbar-title h1{
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1;
+  letter-spacing:.075em;
+  white-space:nowrap;
+}
+.select-panel:has(.practice-eyebrow)>.topbar .topbar-title p:last-child{
+  margin-top:8px;
+  font-size:.82rem;
+}
+.select-panel:has(.practice-eyebrow) .practice-eyebrow{
+  margin-bottom:7px;
+  font-size:.66rem;
+  letter-spacing:.32em;
+}
+.select-panel:has(.practice-eyebrow) .learning-guide-card{
+  min-height:82px;
+  padding:15px 18px;
+  gap:13px;
+  border-radius:16px;
+}
+.select-panel:has(.practice-eyebrow) .guide-icon{
+  font-size:1.55rem;
+}
+.select-panel:has(.practice-eyebrow) .guide-copy strong{
+  font-size:1rem;
+  line-height:1.2;
+}
+.select-panel:has(.practice-eyebrow) .guide-copy small{
+  margin-top:4px;
+  font-size:.76rem;
+  line-height:1.35;
+}
+.select-panel:has(.practice-eyebrow) .guide-cta{
+  font-size:.76rem;
+  white-space:nowrap;
+}
+.select-panel:has(.practice-eyebrow) .training-divider{
+  margin:19px 0 14px;
+}
+.select-panel:has(.practice-eyebrow) .segmented{
+  min-height:48px;
+  margin-bottom:14px;
+}
+.select-panel:has(.practice-eyebrow) .tab-btn{
+  padding:9px 10px;
+  font-size:.86rem;
+}
+.select-panel:has(.practice-eyebrow) .practice-list{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:11px;
+}
+.select-panel:has(.practice-eyebrow) .practice-option{
+  min-height:132px;
+  padding:15px;
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr);
+  align-items:start;
+  gap:12px;
+}
+.select-panel:has(.practice-eyebrow) .practice-icon{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  font-size:1.2rem;
+}
+.select-panel:has(.practice-eyebrow) .practice-copy strong{
+  display:block;
+  font-size:.9rem;
+  line-height:1.15;
+  letter-spacing:.015em;
+}
+.select-panel:has(.practice-eyebrow) .practice-copy span{
+  display:block;
+  margin-top:7px;
+  font-size:.72rem;
+  line-height:1.45;
+}
+
+/* ---------- FOCUS SELECT ---------- */
+.select-panel:has(.interval-grid){
+  width:min(100%,860px);
+  padding:clamp(18px,2.8vw,28px);
+}
+.select-panel:has(.interval-grid)>.topbar{
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr) 92px;
+  align-items:center;
+  gap:14px;
+  margin-bottom:17px;
+}
+.select-panel:has(.interval-grid)>.topbar>.secondary-btn{
+  width:92px;
+  min-width:0;
+  min-height:44px;
+  padding:10px 12px;
+  font-size:.83rem;
+}
+.select-panel:has(.interval-grid)>.topbar .topbar-title h1{
+  font-size:clamp(2rem,4vw,2.8rem);
+  line-height:1;
+  letter-spacing:.07em;
+  white-space:nowrap;
+}
+.select-panel:has(.interval-grid)>.topbar .topbar-title .eyebrow{
+  margin-bottom:7px;
+  font-size:.64rem;
+}
+.select-panel:has(.interval-grid)>.topbar .topbar-title p:last-child{
+  margin-top:8px;
+  font-size:.8rem;
+}
+.select-panel:has(.interval-grid) .interval-tools{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+  margin-bottom:12px;
+}
+.select-panel:has(.interval-grid) .interval-tools .secondary-btn{
+  min-height:42px;
+  padding:9px 12px;
+  font-size:.8rem;
+}
+.select-panel:has(.interval-grid) .interval-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:9px;
+}
+.select-panel:has(.interval-grid) .chip{
+  min-height:72px;
+  padding:10px 8px;
+  border-radius:14px;
+}
+.select-panel:has(.interval-grid) .iv-key{
+  font-size:1.05rem;
+  line-height:1;
+}
+.select-panel:has(.interval-grid) .iv-name{
+  margin-top:6px;
+  font-size:.7rem;
+  line-height:1.1;
+}
+.select-panel:has(.interval-grid) .start-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 82px;
+  gap:10px;
+  align-items:center;
+  margin-top:16px;
+}
+.select-panel:has(.interval-grid) .start-row .primary-btn{
+  width:100%;
+  min-width:0;
+  min-height:52px;
+  padding:13px 18px;
+  font-size:.88rem;
+}
+.select-panel:has(.interval-grid) .selected-count{
+  display:grid;
+  place-items:center;
+  min-height:52px;
+  border:1px solid rgba(182,218,255,.16);
+  border-radius:14px;
+  background:rgba(255,255,255,.035);
+  font:700 .74rem ui-monospace,monospace;
+  color:rgba(225,235,255,.72);
+}
+
+/* ---------- smartphone ---------- */
+@media(max-width:700px){
+  .select-panel:has(.practice-eyebrow),
+  .select-panel:has(.interval-grid){
+    width:min(100%,430px);
+    padding:16px;
+    border-radius:20px;
+  }
+
+  .select-panel:has(.practice-eyebrow)>.topbar,
+  .select-panel:has(.interval-grid)>.topbar{
+    grid-template-columns:44px minmax(0,1fr) 44px;
+    gap:8px;
+    margin-bottom:15px;
+  }
+  .select-panel:has(.practice-eyebrow)>.topbar>.secondary-btn,
+  .select-panel:has(.interval-grid)>.topbar>.secondary-btn{
+    width:44px;
+    min-width:44px;
+    height:44px;
+    min-height:44px;
+    padding:0;
+    overflow:hidden;
+    font-size:0;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+  }
+  .select-panel:has(.practice-eyebrow)>.topbar>.secondary-btn::before,
+  .select-panel:has(.interval-grid)>.topbar>.secondary-btn::before{
+    content:'←';
+    font-size:1.25rem;
+    line-height:1;
+  }
+  .select-panel:has(.practice-eyebrow)>.topbar>.settings-gear-btn{
+    width:44px;
+    min-width:44px;
+    height:44px;
+    min-height:44px;
+    border-radius:13px;
+  }
+  .select-panel:has(.interval-grid)>.topbar>span{
+    width:44px!important;
+  }
+  .select-panel:has(.practice-eyebrow)>.topbar .topbar-title h1,
+  .select-panel:has(.interval-grid)>.topbar .topbar-title h1{
+    font-size:clamp(1.35rem,6.1vw,1.7rem);
+    letter-spacing:.055em;
+    white-space:nowrap;
+  }
+  .select-panel:has(.practice-eyebrow)>.topbar .topbar-title p:last-child,
+  .select-panel:has(.interval-grid)>.topbar .topbar-title p:last-child{
+    font-size:.68rem;
+    margin-top:6px;
+  }
+  .select-panel:has(.practice-eyebrow) .practice-eyebrow,
+  .select-panel:has(.interval-grid)>.topbar .topbar-title .eyebrow{
+    font-size:.55rem;
+    letter-spacing:.26em;
+    margin-bottom:5px;
+  }
+
+  .select-panel:has(.practice-eyebrow) .learning-guide-card{
+    min-height:0;
+    grid-template-columns:36px minmax(0,1fr);
+    padding:12px 13px;
+    gap:10px;
+    border-radius:15px;
+  }
+  .select-panel:has(.practice-eyebrow) .guide-icon{
+    font-size:1.3rem;
+  }
+  .select-panel:has(.practice-eyebrow) .guide-copy strong{
+    font-size:.88rem;
+  }
+  .select-panel:has(.practice-eyebrow) .guide-copy small{
+    font-size:.67rem;
+    line-height:1.35;
+  }
+  .select-panel:has(.practice-eyebrow) .guide-cta{
+    grid-column:2;
+    margin-top:1px;
+    font-size:.66rem;
+  }
+  .select-panel:has(.practice-eyebrow) .training-divider{
+    margin:15px 0 10px;
+  }
+  .select-panel:has(.practice-eyebrow) .segmented{
+    min-height:44px;
+    margin-bottom:11px;
+  }
+  .select-panel:has(.practice-eyebrow) .tab-btn{
+    padding:8px 6px;
+    font-size:.78rem;
+  }
+  .select-panel:has(.practice-eyebrow) .practice-list{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .select-panel:has(.practice-eyebrow) .practice-option{
+    min-height:0;
+    grid-template-columns:38px minmax(0,1fr);
+    padding:12px;
+    gap:10px;
+    align-items:center;
+    border-radius:14px;
+  }
+  .select-panel:has(.practice-eyebrow) .practice-icon{
+    width:38px;
+    min-width:38px;
+    height:38px;
+    border-radius:12px;
+    font-size:1.05rem;
+  }
+  .select-panel:has(.practice-eyebrow) .practice-copy strong{
+    font-size:.82rem;
+  }
+  .select-panel:has(.practice-eyebrow) .practice-copy span{
+    margin-top:4px;
+    font-size:.66rem;
+    line-height:1.35;
+  }
+
+  .select-panel:has(.interval-grid) .interval-tools{
+    gap:6px;
+    margin-bottom:9px;
+  }
+  .select-panel:has(.interval-grid) .interval-tools .secondary-btn{
+    min-height:38px;
+    padding:7px 5px;
+    font-size:.7rem;
+  }
+  .select-panel:has(.interval-grid) .interval-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+  }
+  .select-panel:has(.interval-grid) .chip{
+    min-height:60px;
+    padding:8px 6px;
+    border-radius:13px;
+  }
+  .select-panel:has(.interval-grid) .iv-key{
+    font-size:.92rem;
+  }
+  .select-panel:has(.interval-grid) .iv-name{
+    margin-top:5px;
+    font-size:.64rem;
+  }
+  .select-panel:has(.interval-grid) .start-row{
+    grid-template-columns:minmax(0,1fr) 66px;
+    gap:7px;
+    margin-top:11px;
+  }
+  .select-panel:has(.interval-grid) .start-row .primary-btn,
+  .select-panel:has(.interval-grid) .selected-count{
+    min-height:46px;
+  }
+  .select-panel:has(.interval-grid) .start-row .primary-btn{
+    padding:11px 10px;
+    font-size:.76rem;
+  }
+  .select-panel:has(.interval-grid) .selected-count{
+    font-size:.65rem;
+    border-radius:12px;
+  }
+}
+
+@media(max-width:390px){
+  .select-panel:has(.practice-eyebrow),
+  .select-panel:has(.interval-grid){padding:13px}
+  .select-panel:has(.practice-eyebrow)>.topbar,
+  .select-panel:has(.interval-grid)>.topbar{
+    grid-template-columns:40px minmax(0,1fr) 40px;
+    gap:6px;
+  }
+  .select-panel:has(.practice-eyebrow)>.topbar>.secondary-btn,
+  .select-panel:has(.interval-grid)>.topbar>.secondary-btn,
+  .select-panel:has(.practice-eyebrow)>.topbar>.settings-gear-btn{
+    width:40px;
+    min-width:40px;
+    height:40px;
+    min-height:40px;
+  }
+  .select-panel:has(.interval-grid)>.topbar>span{width:40px!important}
+  .select-panel:has(.practice-eyebrow)>.topbar .topbar-title h1,
+  .select-panel:has(.interval-grid)>.topbar .topbar-title h1{
+    font-size:1.2rem;
+    letter-spacing:.035em;
+  }
+}
+
+/* Keep the guide heading intact while preserving a labelled back button. */
+@media(max-width:780px){
+  .guide-panel>.topbar{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:16px}
+  .guide-panel>.topbar>.secondary-btn{justify-self:start;min-height:44px;padding:9px 14px;white-space:nowrap}
+  .guide-panel>.topbar>span{display:none}
+  .guide-panel>.topbar .topbar-title h1{font-size:1.35rem;letter-spacing:.02em}
+  .guide-panel>.topbar .topbar-title p{margin-top:6px}
+}

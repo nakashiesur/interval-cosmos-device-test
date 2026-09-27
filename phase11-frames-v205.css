@@ -1,0 +1,22 @@
+/* All nine frame designs approved 2026-09-27. */
+.v205-frame-normal{--cosmos-frame-art:url('assets/art/v1/frames/normal.svg');--cosmos-frame-still:url('assets/art/v1/frames/normal-still.svg')}
+.v205-frame-bronze{--cosmos-frame-art:url('assets/art/v1/frames/bronze.svg');--cosmos-frame-still:url('assets/art/v1/frames/bronze-still.svg')}
+.v205-frame-silver{--cosmos-frame-art:url('assets/art/v1/frames/silver.svg');--cosmos-frame-still:url('assets/art/v1/frames/silver-still.svg')}
+.v205-frame-gold{--cosmos-frame-art:url('assets/art/v1/frames/gold.svg');--cosmos-frame-still:url('assets/art/v1/frames/gold-still.svg')}
+.v205-frame-platinum{--cosmos-frame-art:url('assets/art/v1/frames/platinum.svg');--cosmos-frame-still:url('assets/art/v1/frames/platinum-still.svg')}
+.v205-frame-cosmic{--cosmos-frame-art:url('assets/art/v1/frames/cosmic.svg');--cosmos-frame-still:url('assets/art/v1/frames/cosmic-still.svg')}
+.v205-frame-aurora{--cosmos-frame-art:url('assets/art/v1/frames/aurora.svg');--cosmos-frame-still:url('assets/art/v1/frames/aurora-still.svg')}
+/* Approved 2026-09-27: SUPERNOVA and EVENT HORIZON. */
+.v205-frame-supernova{--cosmos-frame-art:url('assets/art/v1/frames/supernova.svg');--cosmos-frame-still:url('assets/art/v1/frames/supernova-still.svg')}
+.v205-frame-event_horizon{--cosmos-frame-art:url('assets/art/v1/frames/event_horizon.svg');--cosmos-frame-still:url('assets/art/v1/frames/event_horizon-still.svg')}
+:is(.v205-cosmos-avatar,.v205-profile-avatar,.rank-avatar):is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon),
+.v205-frame-card:is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon) .v205-frame-orb{position:relative;isolation:isolate;border-color:transparent!important;box-shadow:none;animation:none;overflow:visible}
+.rank-avatar:is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon){width:40px;height:40px;min-width:40px;min-height:40px;justify-self:center}
+:is(.v205-cosmos-avatar,.v205-profile-avatar,.rank-avatar):is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon)::after,
+.v205-frame-card:is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon) .v205-frame-orb::after{content:"";position:absolute;inset:-8%;background:var(--cosmos-frame-art) center/contain no-repeat;pointer-events:none;z-index:2}
+.v205-frame-card:is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon)::before{display:none}
+.v205-frame-card.locked:is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon) .v205-frame-orb::after{background-image:var(--cosmos-frame-still)}
+@media(prefers-reduced-motion:reduce){
+:is(.v205-cosmos-avatar,.v205-profile-avatar,.rank-avatar):is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon)::after,
+.v205-frame-card:is(.v205-frame-normal,.v205-frame-bronze,.v205-frame-silver,.v205-frame-gold,.v205-frame-platinum,.v205-frame-cosmic,.v205-frame-aurora,.v205-frame-supernova,.v205-frame-event_horizon) .v205-frame-orb::after{background-image:var(--cosmos-frame-still)}
+}

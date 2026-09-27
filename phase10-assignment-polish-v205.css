@@ -1,0 +1,63 @@
+/* Phase 10: assignment actions stay inside narrow result cards. */
+.v205-assignment-panel.result .v205-a-form-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+.v205-assignment-panel.result .v205-a-form-actions>button{
+  min-width:0;
+  width:100%;
+  max-width:100%;
+  padding-inline:10px;
+  letter-spacing:.08em;
+}
+@media(max-width:780px){
+  .v205-assignment-panel.result .v205-a-form-actions>button{
+    min-height:48px;
+    font-size:12px;
+  }
+}
+@media(max-width:360px){
+  .v205-assignment-panel.result .v205-a-form-actions{grid-template-columns:1fr}
+}
+
+/* Expired tasks stay available for review without making the mobile list long. */
+.v205-assignment-panel.student .v205-a-closed{min-width:0}
+.v205-assignment-panel.student .v205-a-closed>summary{
+  display:flex;align-items:center;justify-content:space-between;min-height:48px;
+  padding:12px 16px;border:1px solid rgba(120,160,220,.22);border-radius:13px;
+  color:#cce4f7;background:rgba(80,150,190,.08);font-weight:700;cursor:pointer;
+}
+.v205-assignment-panel.student .v205-a-closed>summary span{color:#88bbd4}
+.v205-assignment-panel.student .v205-a-closed>.v205-a-list{margin-top:12px}
+.v205-assignment-panel.student .v205-a-closed>summary:focus-visible{outline:2px solid #78e7ff;outline-offset:3px}
+@media(min-width:781px){
+  .v205-assignment-panel.student .v205-a-closed>summary{display:none}
+  .v205-assignment-panel.student .v205-a-closed>.v205-a-list{margin-top:0}
+}
+
+/* Keep every student's metrics visible without sideways scrolling on phones. */
+@media(max-width:780px){
+  .v205-assignment-panel.results .v205-a-results{overflow-x:visible;min-width:0}
+  .v205-assignment-panel.results .v205-a-result-row{
+    min-width:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;
+  }
+  .v205-assignment-panel.results .v205-a-result-row>div:first-child{
+    grid-column:1/-1;min-width:0;overflow-wrap:anywhere;
+  }
+  .v205-assignment-panel.results .v205-a-result-row>em{
+    grid-column:1/-1;text-align:left;
+  }
+  .v205-assignment-panel.results .v205-a-result-mode-bests{min-width:0}
+  .v205-assignment-panel.results .v205-a-result-mode-bests>span{
+    min-width:0;flex-wrap:wrap;overflow-wrap:anywhere;
+  }
+}
+
+.v205-a-form .v205-a-form-actions{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.v205-a-form .v205-a-form-actions>button{
+  min-width:0;width:100%;white-space:nowrap;padding-inline:10px;
+}

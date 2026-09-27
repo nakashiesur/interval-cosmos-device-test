@@ -1,0 +1,158 @@
+/* INTERVAL COSMOS v2.0.5 — PC key-config visual polish */
+.v205-pc-config-overlay{
+  background:linear-gradient(180deg,#050918 0%,#03060f 100%);
+  isolation:isolate;
+  overscroll-behavior:contain;
+}
+.v205-pc-config-panel{
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+
+.v205-pc-input-mode{
+  display:grid;
+  grid-template-columns:minmax(110px,.7fr) minmax(260px,1.6fr);
+  gap:14px;
+  align-items:center;
+  margin:16px 0 2px;
+  padding:12px 14px;
+  border:1px solid rgba(125,164,220,.12);
+  border-radius:14px;
+  background:rgba(255,255,255,.018);
+}
+.v205-pc-input-mode>span{
+  color:#8294b4;
+  font-size:.66rem;
+  font-weight:850;
+  letter-spacing:.13em;
+}
+.v205-pc-mode-switch{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  padding:4px;
+  border:1px solid rgba(143,174,220,.14);
+  border-radius:12px;
+  background:rgba(4,8,19,.6);
+}
+.v205-pc-mode-option{
+  min-height:48px;
+  padding:7px 12px;
+  border:1px solid transparent;
+  border-radius:9px;
+  background:transparent;
+  color:#899bb9;
+  cursor:pointer;
+  transition:.16s ease;
+}
+.v205-pc-mode-option strong,
+.v205-pc-mode-option small{display:block}
+.v205-pc-mode-option strong{font-size:.72rem;letter-spacing:.035em}
+.v205-pc-mode-option small{margin-top:3px;color:#657895;font-size:.61rem;font-weight:800;letter-spacing:.08em}
+.v205-pc-mode-option:hover{
+  color:#c8d6eb;
+  background:rgba(86,213,255,.045);
+}
+.v205-pc-mode-option.selected{
+  border-color:rgba(91,222,255,.42);
+  background:linear-gradient(180deg,rgba(42,150,188,.18),rgba(17,66,94,.13));
+  color:#e9fbff;
+  box-shadow:0 0 22px rgba(65,211,255,.08),inset 0 0 0 1px rgba(106,227,255,.025);
+}
+.v205-pc-mode-option.selected small{color:#78dcf3}
+
+.v205-pc-keybox.aux.empty{
+  color:transparent;
+}
+
+/* Decision keys are the main action: keep them subtly warmer than optional prefix keys. */
+.v205-pc-keybox.primary{
+  border-color:rgba(255,112,136,.34);
+  background:linear-gradient(180deg,rgba(76,20,37,.34),rgba(20,10,19,.72));
+  color:#ffe8ee;
+  box-shadow:inset 0 0 0 1px rgba(255,120,145,.035);
+}
+.v205-pc-keybox.primary:hover{
+  border-color:rgba(255,126,150,.62);
+  background:linear-gradient(180deg,rgba(100,25,47,.42),rgba(29,11,23,.78));
+}
+
+/* Learning state: stronger red feedback than the normal decision-key accent. */
+.v205-pc-keybox.recording,
+.v205-pc-keybox.primary.recording,
+.v205-pc-keybox.aux.recording{
+  border-color:rgba(255,73,105,.95);
+  background:radial-gradient(circle at 50% 45%,rgba(255,86,119,.26),rgba(74,10,29,.88));
+  color:#fff5f7;
+  box-shadow:0 0 0 2px rgba(255,65,101,.16),0 0 28px rgba(255,56,95,.30),inset 0 0 20px rgba(255,88,120,.10);
+  animation:v205PcLearn 680ms ease-in-out infinite alternate;
+  font-size:.68rem;
+  letter-spacing:0;
+  white-space:nowrap;
+  padding-inline:6px;
+}
+@keyframes v205PcLearn{
+  from{transform:scale(1);box-shadow:0 0 0 2px rgba(255,65,101,.12),0 0 18px rgba(255,56,95,.20),inset 0 0 16px rgba(255,88,120,.08)}
+  to{transform:scale(1.025);box-shadow:0 0 0 3px rgba(255,65,101,.22),0 0 38px rgba(255,56,95,.42),inset 0 0 24px rgba(255,88,120,.15)}
+}
+
+.v205-pc-config-head > div > span.learning{
+  color:#ffc2cc;
+  font-weight:800;
+  letter-spacing:.015em;
+}
+.v205-pc-config-head > div > span .v205-pc-config-cancel-hint{
+  display:inline-flex;
+  align-items:center;
+  gap:.32em;
+  margin:0 0 0 .85em;
+  color:#8392ad;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:0;
+}
+.v205-pc-config-cancel-hint kbd{
+  min-width:28px;
+  padding:2px 5px;
+  border:1px solid rgba(149,166,198,.28);
+  border-radius:5px;
+  background:rgba(5,9,20,.66);
+  color:#b8c4da;
+  font:inherit;
+  font-size:.58rem;
+  line-height:1.25;
+  text-align:center;
+}
+
+/* A successful capture gets one short confirmation flash before returning to normal. */
+.v205-pc-keybox.captured{
+  animation:v205PcCaptured 340ms ease-out 1;
+}
+@keyframes v205PcCaptured{
+  0%{
+    border-color:rgba(255,70,104,1);
+    background:rgba(96,15,38,.82);
+    box-shadow:0 0 0 4px rgba(255,61,98,.18),0 0 34px rgba(255,55,94,.42),inset 0 0 18px rgba(255,105,132,.14);
+  }
+  100%{}
+}
+
+/* The top instruction carries the learning state, so keep the lower status line quiet unless it is an error. */
+.v205-pc-config-message.learning:not(.error){
+  color:transparent;
+}
+
+@media(max-width:620px){
+  .v205-pc-input-mode{grid-template-columns:1fr;gap:8px;padding:10px;margin-top:12px}
+  .v205-pc-input-mode>span{font-size:.58rem}
+  .v205-pc-mode-option{min-height:44px;padding:6px 7px}
+  .v205-pc-mode-option strong{font-size:.65rem}
+  .v205-pc-mode-option small{font-size:.56rem}
+  .v205-pc-keybox.recording{font-size:.58rem;padding-inline:3px}
+  .v205-pc-config-head > div > span .v205-pc-config-cancel-hint{margin-left:.55em;font-size:.6rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .v205-pc-keybox.recording,
+  .v205-pc-keybox.captured{animation:none}
+}

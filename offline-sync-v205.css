@@ -1,0 +1,11 @@
+.sync-overlay {position:fixed;inset:0;z-index:10000;background:#050812dd;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));}
+.sync-card {width:min(680px,100%);max-height:100%;overflow:auto;overscroll-behavior:contain;background:#101629;border:1px solid #456079;border-radius:22px;padding:20px;color:#edf7ff;box-sizing:border-box;}
+.sync-card header {display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.sync-card h2 {font-size:20px;margin:0;}
+.sync-card p {font-size:13px;line-height:1.7;overflow-wrap:anywhere;color:#b8cadd;}
+.sync-list article {border-top:1px solid #ffffff20;padding:16px 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;}
+.sync-list article p {flex-basis:100%;margin:0;}
+.sync-list small {display:block;color:#9cafc5;margin-top:5px;}
+.sync-list b {color:#61e3eb;font-size:12px;}
+.sync-card button {min-height:44px;max-width:100%;white-space:normal;}
+.sync-card [data-sync-message] button {display:block;margin-top:10px;}

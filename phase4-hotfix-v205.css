@@ -1,0 +1,29 @@
+/* INTERVAL COSMOS v2.0.5 — Phase 4 focus choice hotfix */
+.v205-practice-choice section>div>button{
+  width:100%;
+  min-width:0;
+  height:88px;
+  margin:0;
+  padding:0 18px;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  line-height:1;
+  color:#eef5ff !important;
+  background:rgba(255,255,255,.035) !important;
+  border:1px solid rgba(127,159,220,.34) !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+}
+.v205-practice-choice section>div>button:hover,
+.v205-practice-choice section>div>button:focus-visible{
+  background:rgba(80,220,255,.08) !important;
+  border-color:rgba(80,220,255,.62) !important;
+  box-shadow:0 0 0 1px rgba(80,220,255,.1) inset !important;
+  transform:translateY(-1px);
+}
+@media(max-width:780px){
+  .v205-practice-choice section>div>button{height:78px;font-size:20px}
+}
