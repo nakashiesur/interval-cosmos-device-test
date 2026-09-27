@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>フレームの実機確認 | INTERVAL COSMOS</title>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="phase3-v205.css"><link rel="stylesheet" href="phase5-v205.css"><link rel="stylesheet" href="phase11-art-v205.css"><link rel="stylesheet" href="phase11-frames-v205.css">
+<style>
+html{height:auto;overflow:auto}body{display:block;height:auto;min-height:100svh;overflow:auto;margin:0;padding:24px max(20px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));background:#070c18;color:#f1f6ff;font-family:system-ui,sans-serif;box-sizing:border-box}main{max-width:880px;margin:auto}h1{font-size:clamp(22px,5vw,30px);line-height:1.4}h2{font-size:20px;margin:0 0 24px}p,li{line-height:1.7}a{color:#6ee4ff}.status{padding:12px 16px;border:1px solid #456079;border-radius:12px;background:#101c30}.frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:18px;margin:24px 0}.frame-check{padding:22px;border:1px solid #30405d;border-radius:20px;background:#0e1629;min-width:0}.samples{display:flex;align-items:center;justify-content:space-around;gap:20px;flex-wrap:wrap;min-height:150px}.sample{text-align:center;display:grid;justify-items:center;gap:16px}.sample span{font-size:12px;color:#bacbe4}.sample .v205-profile-avatar{width:84px;height:84px;display:grid;place-items:center;border-radius:50%}.sample .rank-avatar{display:grid;place-items:center}.sample .v205-avatar-image{width:70%;height:70%;object-fit:contain}.sample .v205-frame-card{width:90px;min-height:90px;padding:10px;margin:0;display:grid;place-items:center}.sample .v205-frame-orb{width:54px;height:54px;display:grid;place-items:center;border-radius:50%}.back{display:inline-block;padding:14px 20px;margin-bottom:20px;border:1px solid #4c7b94;border-radius:12px;text-decoration:none}
+</style></head><body><main>
+<a class="back" href="index.html">ゲームへ戻る</a><h1>動くフレームの実機確認</h1>
+<p>iPhone・iPadで確認するための見本です。アカウント登録やフレームの解放は不要です。</p>
+<p class="status" id="motion-state" role="status"></p>
+<ol><li>通常設定では、4種類とも動くことを確認します。右端の「未解放」は静止したままです。</li><li>縦・横に回して、フレームが欠けず、一番下までスクロールできるか確認します。</li><li>端末の「設定 → アクセシビリティ → 動作 → 視差効果を減らす」をオンにして、この画面に戻り、再読み込みします。4種類とも静止するか確認します。</li><li>確認後は設定を元に戻してください。</li></ol>
+<div class="frames" id="frames"></div>
+<p>このページは表示確認専用です。記録やアカウントは変更しません。</p><a class="back" href="index.html">ゲームへ戻る</a>
+<script>
+const frames=[['cosmic','コズミック'],['aurora','オーロラ'],['supernova','スーパーノヴァ'],['event_horizon','事象の地平線']];
+const avatar='<img class="v205-avatar-image" src="assets/art/v1/avatars/nova.svg" alt="新星" width="84" height="84">';
+document.getElementById('frames').innerHTML=frames.map(([id,name])=>`<section class="frame-check"><h2>${name}</h2><div class="samples"><div class="sample"><div class="v205-profile-avatar v205-profile-frame v205-frame-${id}">${avatar}</div><span>プロフィール</span></div><div class="sample"><div class="rank-avatar v205-profile-frame v205-frame-${id}">${avatar}</div><span>ランキング</span></div><div class="sample"><div class="v205-frame-card animated locked v205-frame-${id}"><div class="v205-frame-orb">?</div></div><span>未解放（静止）</span></div></div></section>`).join('');
+const motion=matchMedia('(prefers-reduced-motion: reduce)');
+function showMotion(){document.getElementById('motion-state').textContent=motion.matches?'現在：動きを減らす設定がオンです。フレームは静止します。':'現在：通常の動きです。フレームが動きます。';}
+motion.addEventListener('change',showMotion);showMotion();
+</script></main></body></html>
