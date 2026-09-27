@@ -107,3 +107,26 @@
  .v205-cosmos-id h2{font-size:clamp(20px,5.5vw,26px);}
  .v205-points{grid-column:2;display:flex;align-items:baseline;gap:8px;text-align:left;}
 }
+
+/* Assignment shells are separate from normal play; fit short Safari landscape. */
+@media (orientation:landscape) and (max-height:540px){
+ .v205-assignment-overlay:has(> .v205-a-game){padding:4px max(10px,env(safe-area-inset-right)) 4px max(10px,env(safe-area-inset-left));overflow:auto;}
+ .v205-assignment-overlay > .v205-a-game{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:40px minmax(176px,1fr) 44px;gap:4px 12px;width:100%;min-height:0;height:calc(100dvh - 8px);}
+ .v205-a-game .play-hud{grid-column:1/-1;min-height:0;margin:0;}
+ .v205-a-game .v205-a-timer{width:38px;height:38px;font-size:1rem;}
+ .v205-a-game .metric{padding:3px 8px;min-width:60px;}
+ .v205-a-game .question-zone{grid-column:1;grid-row:2;min-height:0;padding:0;}
+ .v205-a-game .question-card{min-height:0;height:100%;width:100%;padding:6px;}
+ .v205-a-game .question-label{font-size:.5rem;margin:0 0 4px;}
+ .v205-a-game .note-question{font-size:2rem;line-height:1.15;}
+ .v205-a-game .v205-a-keyboard{max-height:100px;width:100%;}
+ .v205-a-game .sound-controls{margin-top:6px;}
+ .v205-a-game .sound-controls .secondary-btn{min-height:40px;padding:5px 12px;}
+ .v205-a-game .answer-area{grid-column:2;grid-row:2;padding:0;align-self:center;}
+ .v205-a-game .answer-rows{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;}
+ .v205-a-game .answer-row{display:contents;}
+ .v205-a-game .answer-btn-large{height:41px;min-height:41px;}
+ .v205-a-game .answer-btn-large .answer-main{font-size:.9rem;}
+ .v205-a-game .v205-a-game-foot{grid-column:1/-1;min-height:0;margin:0;padding:0;gap:8px;font-size:.65rem;}
+ .v205-a-game-foot .secondary-btn{min-height:44px;padding:6px 12px;}
+}
